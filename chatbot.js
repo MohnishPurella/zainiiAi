@@ -3,7 +3,7 @@ let chatLogs = { 'chat-session-0': [] };
 let activeSession = 'chat-session-0';
 let recognition;
 
-const XI_API_KEY = '6773c0ce680b00f47eea6c0d26cb9013'; // Replace <xi-api-key> with your actual API key
+const XI_API_KEY = ''; // Replace <xi-api-key> with your actual API key
 const VOICE_ID = 'EXAVITQu4vr4xnSDxMaL'; // Replace <voice-id> with the id of the voice you want to use
 
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
