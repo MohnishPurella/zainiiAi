@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../style1.css">
+    <link rel="stylesheet" href="aboutus.css">
+    <script>
+        window.onload = function(){
+            const buttom = document.getElementById("myButton");
+            buttom.addEventListener("click", function(){
+                window.location.href = "../../index.html"
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="navbar">
+        <nav class="navbar fixed-top navbar-expand-lg bg-transparent">
+            <div class="container-fluid">
+              <li class="navbar-header">
+                <a class="navbar-brand" href="../../index1.html">Zainii AI</a>
+              </li>
+              <ul class="navbar-nav ms-auto">      
+               <li class="nav-item navbar-right">
+                  <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item" id="loginNavItemID">
+                  <a class="nav-link" href="../login/login.html">Login</a>
+                </li>
+                <li class="nav-item" id="signupNavItemID">
+                  <a class="nav-link" href="../signup/signup.html">Signup</a>
+                </li>
+                <li class="nav-item" id="logoutNavItemID" style="display: none;"> 
+                    <a class="nav-link" href="#">Logout</a> 
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+    <div class="aboutUsBody">    
+        <div class="row">
+            <div class="col-sm-12">
+                <img class="rectangle26ImageClass" src="../../assets/images/Rectangle 26.png" alt="Logo">
+                <div class="aboutUSText">
+                    <h3 class="heading"><span style="color:#701a75;">About</span> Us</h3>
+                    <p class="para1">We are a team of dedicated professionals who are passionate zbout <br>making education accessible to all. Our mission is to provide high-<br>quality education content to students, educators, and<br>professionals around the world.</p>
+                    <button class="curved-button" id="myButton">Meet Our AI&nbsp;&nbsp;<i class="bi bi-arrow-right"></i></button>
+                </div>            
+            </div>
+        </div>
+        <div class="row row2Class">
+            <div class="col-sm-4">
+                <img class="looperGroupImageClass" src="../../assets/images/LooperGroup.png" alt="Logo">
+                <img class="Rectangle18ImageClass" src="../../assets/images/Rectangle 18.png" alt="Logo">
+            </div>
+            <div class="col-sm-8">
+                <div class="textContent">
+                    <p style="color: whitesmoke;">Our company was founded with a vison to revolutionize the education industry by leveraging the power of technology.<br>We believe that everyone should have the opportunity to learn and grow,regardless of their location or socio-economic<br>status. We are committed to providing the best possible learning experience to our users. Our team of experts works<br>tirelessly to create engaging,interactive, and relevant content that meets the diverse needs of our learners.</p>
+    
+                    <p style="color: whitesmoke;">At our core, we value innovation, collaboration, and excellence. We are constantly pushing the boundaries of what is<br>possible, and we are not afraid to take risks and try new things. We belive that by working together,we can achieve<br>great things and make a positive impact on the world. Thankyou for choosing Zainii.AI. We look forward to helping<br>you achieve your educational goals and aspirations.</p>
+                </div>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 hrTag">
+                <hr>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="row">
+                <div class="col-sm-2 footerP1">
+                    <h5>Zainii.ai</h5>
+                    <small>AI Chatbot for students to boost learning</small>
+                </div>
+                <div class="col-sm-4 footerP2">
+                    <a href="javascrit:" style="text-decoration: none;"><span class="whiteText">About Us</span></a><br>
+                    <a href="javascrit:" style="text-decoration: none;"><span class="whiteText">Company</span></a><br>
+                    <a href="javascrit:" style="text-decoration: none;"><span class="whiteText">Bogs</span></a>
+                </div>
+                <div class="col-sm-6">
+                    <img class="group300ImageClass" src="./../../assets/images/Group 300.png" alt="Logo">
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyFjmb6mwsJ2IPa4omjqu-cbPQ5icIdFU",
+            authDomain: "zainii2.firebaseapp.com",
+            databaseURL: "https://zainii2-default-rtdb.firebaseio.com",
+            projectId: "zainii2",
+            storageBucket: "zainii2.appspot.com",
+            messagingSenderId: "971931649431",
+            appId: "1:971931649431:web:4d0dbe39102704595970d2"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        
+        onAuthStateChanged(auth, (user) => {
+            var signupBtn = document.getElementById('signupNavItemID');
+            var loginBtn = document.getElementById('loginNavItemID');
+            var logoutBtn = document.getElementById('logoutNavItemID');
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                const uid = user.uid;
+                signupBtn.style.display = 'none';
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+                // ...
+            } else {
+                // User is signed out
+                // ...
+                signupBtn.style.display = 'block';
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+            }
+        });
+        document.getElementById("logoutNavItemID").addEventListener('click', function(e){
+        e.preventDefault();                
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index1.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        });
+    </script>
+</body>
+</html>
